@@ -8,18 +8,18 @@ before_install:
 script:
   - docker run kevjose/react-test npm test -- --coverage
 
-# after_success:
-#   - docker build -t kevjose/multi-client ./client
-#   - docker build -t kevjose/multi-nginx ./nginx
-#   - docker build -t kevjose/multi-server ./server
-#   - docker build -t kevjose/multi-worker ./worker
-#   # Log in to the docker CLI
-#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-#   # Take those images and push them to docker hub
-#   - docker push kevjose/multi-client
-#   - docker push kevjose/multi-nginx
-#   - docker push kevjose/multi-server
-#   - docker push kevjose/multi-worker
+after_success:
+  - docker build -t kevjose/multi-client ./client
+  - docker build -t kevjose/multi-nginx ./nginx
+  - docker build -t kevjose/multi-server ./server
+  - docker build -t kevjose/multi-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push kevjose/multi-client
+  - docker push kevjose/multi-nginx
+  - docker push kevjose/multi-server
+  - docker push kevjose/multi-worker
 
 # deploy:
 #   provider: elasticbeanstalk
