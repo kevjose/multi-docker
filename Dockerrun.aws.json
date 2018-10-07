@@ -6,21 +6,21 @@
         "image": "kevjose/multi-client",
         "hostname": "client",
         "essential": false,
-        "memory": 128
+        "memory": 3072
       },
       {
         "name": "server",
         "image": "kevjose/multi-server",
         "hostname": "api",
         "essential": false,
-        "memory": 128
+        "memory": 3072
       },
       {
         "name": "worker",
         "image": "kevjose/multi-worker",
         "hostname": "worker",
         "essential": false,
-        "memory": 128
+        "memory": 3072
       },
       {
         "name": "nginx",
@@ -34,7 +34,7 @@
           }
         ],
         "links": ["client", "server"],
-        "memory": 128
+        "memory": 3072
       }
     ]
   }
